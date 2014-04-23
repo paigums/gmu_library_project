@@ -1,5 +1,7 @@
 
 class BooksController < ApplicationController
   def index
-  end
+  	@available_at = Time.now
+	@books = Book.all  
+	end
 end

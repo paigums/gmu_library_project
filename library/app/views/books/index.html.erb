@@ -1,8 +1,7 @@
 <h1>Library</h1>
-<p>Available as of 3/18/2014</p>
+<p>Available as of <%= formatted_time(@available_at) %></p>
 <ol>
-  <li>Game of My Life</li>
-  <li>They Call Me Assassin</li>
-  <li>The Winner Within</li>
-  <li>Show Time: Inside the Lakers' Breakthrough Season</li>
+<% @books.each do |book| %>
+  <li><%= book.title %> by <%= book.author %></li>
+<% end %>
 </ol>
