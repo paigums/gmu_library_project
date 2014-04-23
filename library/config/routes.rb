@@ -1,7 +1,12 @@
 Library::Application.routes.draw do
 
-  get "library/user" => "user#index", as: 'user'
-  get "library/books" => "books#index", as: 'books'
+  get "/users" => "user#index", as: 'users'
+  get "/user/:id" => "user#show", as: 'user'
+  
+  get "/books" => "books#index", as: 'books'
+  get "/books/:id" => "books#show", as: 'book'
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

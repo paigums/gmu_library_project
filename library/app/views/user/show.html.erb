@@ -1,0 +1,11 @@
+
+<article class="user">
+  <header>
+    <h2>User Profile</h2>
+  </header>
+  <p><label>Id:</label> <%= @user.user_id %></p>
+  <p><label>Name:</label> <%= @user.name %></p>
+  <p><label>Member Since:</label> <%= @user.created_at %></p>
+</article>
+
+<%= link_to 'All Users', user_path %>
