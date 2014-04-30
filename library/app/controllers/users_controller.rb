@@ -1,8 +1,8 @@
 
-class UserController < ApplicationController
+class UsersController < ApplicationController
 	def index
 	  	@available_at = Time.now
-		@user = User.all
+		@users = User.all
 	end
 
   	def show

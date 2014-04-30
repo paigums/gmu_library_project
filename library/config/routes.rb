@@ -1,7 +1,7 @@
 Library::Application.routes.draw do
 
-  get "/users" => "user#index", as: 'users'
-  get "/user/:id" => "user#show", as: 'user'
+  get "/users" => "users#index", as: 'users'
+  get "/users/:id" => "users#show", as: 'user'
   
   get "/books" => "books#index", as: 'books'
   get "/books/:id" => "books#show", as: 'book'
