@@ -15,6 +15,14 @@
   <p><label>Abstract:</label> <%= @book.abstract %></p>
   <p><label>Cover Image:</label><%= @book.image_cover_url %> </p>
 
+  <p>
+  Available to Reserve
+  <%= link_to pluralize(@book.reservations.size, 'reservation'), 
+                        book_reservations_path(@book) %>
+</p>
+
+<%#<p><label>Show Reservations:</label> <%= format_show_reserved_on(@book) %></p>
+
 </article>
 
 <%= link_to 'All Books', books_path %> | <%= link_to 'Edit', edit_book_path(@book) %>

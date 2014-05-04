@@ -1,0 +1,10 @@
+<%= form_for( [ @book, @reservation ] ) do |f| %>
+  <%= render 'shared/validation_errors', object: @reservation %>
+
+  <%= f.label :reserved_on %> <%= f.text_field :reserved_on %><br />
+  <%= f.label :due_on %> <%= f.text_field :due_on %><br />
+
+    <%= f.submit %>
+    <%= link_to 'Cancel', book_reservations_path(@book), id: 'cancel_reservation' %>
+  </p>
+<% end %>

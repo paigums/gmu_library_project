@@ -1,0 +1,25 @@
+<h1>My Reservations</h1>
+<p><%= link_to(@book.title, @book) %></p>
+  <ol id="reservations">
+  <% @reservations.each do |reservation| %>
+    <li>
+      <span class="reservation"><%= pluarlize(reservation.reserved_on, 'reservation') %> </span>
+      <span class="user">Reserved by: <%= reservation.name %> </span>
+      <span class="reserved_on">Reserved on: <%= time_ago_in_words(reservation.reserved_on) %> ago
+      </span>
+      <span class="due_on">
+      Due on: <%= time_ago_in_words(reservation.due_on) %> ago
+      </span>
+      <% end %>
+      <p>
+        If overdue, "Overdue!" alert text goes here.
+      </p>
+    </li>
+
+</ol>
+<%= link_to 'Reserve a Book', new_book_reservation_path(@book),
+        remote: true,
+        data: { 'update-target' => 'reservations_form_container' },
+        class: 'btn btn-primary' %>
+
+<div id="reservations_form_container"></div>
