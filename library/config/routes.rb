@@ -1,15 +1,21 @@
 Library::Application.routes.draw do
 
+  get "admin/index"
+  get "sessions/new"
+  get "sessions/create"
+  get "sessions/destroy"
+  resources :users
+
   resources :books do
   resources :reservations
   get 'page/:page', :action => :index, :on => :collection
 end
 root 'books#index'
 
-  get "/users" => "users#index", as: 'users'
-  get "/users/new" => "users#new", as: 'new_user'
-  get "/users/:id" => "users#show", as: 'user'
-  post "/users" => "users#create"
+  #get "/users" => "users#index", as: 'users'
+  #get "/users/new" => "users#new", as: 'new_user'
+  #get "/users/:id" => "users#show", as: 'user'
+  #post "/users" => "users#create"
 
 
 

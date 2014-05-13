@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140503182728) do
+ActiveRecord::Schema.define(version: 20140513042900) do
 
   create_table "books", force: true do |t|
     t.string   "isbn"
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 20140503182728) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "user_id"
-    t.string   "password"
     t.boolean  "admin"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

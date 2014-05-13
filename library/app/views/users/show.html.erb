@@ -1,11 +1,19 @@
+<p id="notice"><%= notice %></p>
 
-<article class="user">
-  <header>
-    <h2>User Profile</h2>
-  </header>
-  <p><label>Id:</label> <%= @user.user_id %></p>
-  <p><label>Name:</label> <%= @user.name %></p>
-  <p><label>Member Since:</label> <%= @user.created_at %></p>
-</article>
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
 
-<%= link_to 'All Users', users_path %>
+<p>
+  <strong>User:</strong>
+  <%= @user.user_id %>
+</p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= @user.admin %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

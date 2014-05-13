@@ -1,0 +1,24 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.user_row td{
+	margin-right:20px;
+	padding:10px 10px 10px 0px;
+}
+	.user_row td a{
+		margin-left: 10px;
+		background: #428BCA;
+		padding: 5px 10px;
+		color: #fff;
+	}
+
+a{
+	color:#428BCA;
+}
+
+a:visited{
+	color:#428BCA;
+}
+	a:hover{
+		background-color: none !important;
+	}
