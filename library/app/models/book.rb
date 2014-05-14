@@ -10,7 +10,7 @@ validates :total_in_library,
 validates :abstract, length: { minimum: 15 }, unless: "abstract.blank?"
 validates :genre, inclusion: { in: %w(Football Basketball Baseball Hockey General),
 	message: "%{value} is not a valid genre" }
-
+# google date regex (regular expressions) to do a date validation so the correct format is used when adding a book to the database
 
 #	def show_reserved_on
 #	  reservations.show(:reserved_on)
