@@ -1,5 +1,12 @@
 Library::Application.routes.draw do
 
+get 'users' => 'users#index'
+  controller :sessions do
+    get  'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+
   get "admin/index"
   get "sessions/new"
   get "sessions/create"

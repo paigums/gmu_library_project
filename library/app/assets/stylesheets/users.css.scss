@@ -22,3 +22,10 @@ a:visited{
 	a:hover{
 		background-color: none !important;
 	}
+
+.field{
+	
+	display:inline-block;
+}
+
+.actions input[type=submit]{ background:#428BCA; color:#fff; border:none; padding: 10px 20px;}
