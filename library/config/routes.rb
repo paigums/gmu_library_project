@@ -7,9 +7,17 @@ end
 root 'books#index'
 
   get "/users" => "users#index", as: 'users'
+  get "/authors" => "authors#index", as: 'authors'
   get "/users/new" => "users#new", as: 'new_user'
+  get "/authors/new" => "authors#new", as: 'new_author'
   get "/users/:id" => "users#show", as: 'user'
+  get "/authors/:id" => "authors#show", as: 'author'
   post "/users" => "users#create"
+  post "/authors" => "authors#create"
+  post "/books/search" => "books#search"
+
+
+
 
 
 
