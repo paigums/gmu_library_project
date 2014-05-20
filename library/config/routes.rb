@@ -19,12 +19,11 @@ resources :reservations
 end
 root 'books#index'
 
-<<<<<<< HEAD
   #get "/users" => "users#index", as: 'users'
   #get "/users/new" => "users#new", as: 'new_user'
   #get "/users/:id" => "users#show", as: 'user'
   #post "/users" => "users#create"
-=======
+
   get "/authors" => "authors#index", as: 'authors'
   get "/authors/new" => "authors#new", as: 'new_author'
   get "/authors/:id" => "authors#show", as: 'author'
@@ -33,7 +32,7 @@ root 'books#index'
 
 
 
->>>>>>> 508d3f0022e30233bbb4f587431de637f6ea9d74
+
 
 
 
