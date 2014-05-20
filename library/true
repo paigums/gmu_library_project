@@ -1,0 +1,12 @@
+-- create_table("books", {:force=>true})
+   -> 0.0467s
+-- create_table("reservations", {:force=>true})
+   -> 0.0139s
+-- add_index("reservations", ["book_id"], {:name=>"index_reservations_on_book_id"})
+   -> 0.0055s
+-- add_index("reservations", ["user_id"], {:name=>"index_reservations_on_user_id"})
+   -> 0.0063s
+-- create_table("users", {:force=>true})
+   -> 0.0233s
+-- initialize_schema_migrations_table()
+   -> 0.0012s

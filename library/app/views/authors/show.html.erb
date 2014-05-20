@@ -1,0 +1,15 @@
+
+<article class="author">
+  <header>
+    <h2><%= @author.name %></h2>
+  </header>
+	  <p><%= author.image_url %></p>
+	  <p><%= @author.bio %></p>
+	<h3>Details</h3>
+	  <p><label>Date of Birth:</label> <%= @author.dob %></p>
+	  <p><label>Nationality:</label> <%= @author.nationality %></p>
+	    <p><label>Awards:</label> <%= @author.awards %></p>
+	<h3> <%= pluralize(author.books.size, 'Publication') %> </h3>
+</article>
+
+<%= link_to 'All Authors', authors_path %>
