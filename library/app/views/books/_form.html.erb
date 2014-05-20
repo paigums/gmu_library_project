@@ -1,17 +1,38 @@
 <%= form_for(@book) do |f| %>
 <%= render 'shared/validation_errors', object: @book %>
-  <%= f.label :title %> <%= f.text_field :title, autofocus: true %><br />
-  <%= f.label :author %> <%= f.text_field :author %><br />
-  <%= f.label :pages %> <%= f.text_field :pages %><br />
-  <%= f.label :author_id %> <%= f.text_field :author_id %><br />
-  <%= f.label :genre %> <%= f.text_field :genre %><br />
-  <%= f.label :isbn %> <%= f.text_field :isbn %><br />
-  <%= f.label :abstract %> <%= f.text_area :abstract %><br />
-  <%= f.label :image_cover_url %> <%= f.text_field :image_cover_url %><br />
-  <%= f.label :published_on %> <%= f.text_field :published_on %><br />
-  <%= f.label :total_in_library %> <%= f.text_field :total_in_library %><br />
+
+<div class="row">
+  <%= f.label :title, class:"col-sm-3"%> <%= f.text_field :title, autofocus: true, class: "col-sm-3", placeholder: "Enter Title" %><br />
+</div>
+<div class="row">
+  <%= f.label :author, class:"col-sm-3" %> <%= f.text_field :author, class: "col-sm-3",placeholder: "Enter Author"   %><br />
+</div>
+<div class="row">
+  <%= f.label :pages, class:"col-sm-3" %> <%= f.text_field :pages, class: "col-sm-3", placeholder: "Enter Number of Pages"   %><br />
+</div>
+<div class="row">
+  <%= f.label :author_id, class:"col-sm-3"%> <%= f.text_field :author_id, class: "col-sm-3", placeholder: "Enter Author ID"    %><br />
+</div>
+<div class="row">
+  <%= f.label :genre, class:"col-sm-3" %> <%= f.text_field :genre, class: "col-sm-3", placeholder: "Enter Genre"   %><br />
+</div>
+<div class="row">
+  <%= f.label :isbn, class:"col-sm-3" %> <%= f.text_field :isbn, class: "col-sm-3", placeholder: "Enter ISBN"   %><br />
+</div>
+<div class="row">
+  <%= f.label :abstract, class:"col-sm-3" %> <%= f.text_area :abstract, class: "col-sm-3", placeholder: "Enter abstract"   %><br />
+</div>
+<div class="row">
+  <%= f.label :image_cover_url, class:"col-sm-3" %> <%= f.text_field :image_cover_url, class: "col-sm-3", placeholder: "Enter Image URL"   %><br />
+</div>
+<div class="row">
+  <%= f.label :published_on, class:"col-sm-3" %> <%= f.text_field :published_on, class: "col-sm-3", placeholder: "Published on Date"  %><br />
+</div>
+<div class="row">
+  <%= f.label :total_in_library, class:"col-sm-3" %> <%= f.text_field :total_in_library, class: "col-sm-3", placeholder: "Total total in library"   %><br />
+</div>
   <p>
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-primary"%>
     <%= link_to 'Cancel', books_path %>
   </p>
 <% end %>

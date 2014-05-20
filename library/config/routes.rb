@@ -8,13 +8,13 @@ get 'users' => 'users#index'
   end
 
   get "admin/index"
-  get "sessions/new"
+  #get "sessions/new"
   get "sessions/create"
   get "sessions/destroy"
   resources :users
 
-  resources :books do
-  resources :reservations
+resources :books do
+resources :reservations
   get 'page/:page', :action => :index, :on => :collection
 end
 root 'books#index'
@@ -33,7 +33,7 @@ root 'books#index'
  # get "/books/:id/edit" => "books#edit", as: 'edit_book'
  # patch "/books/:id" => "books#update"
  # delete "/books/:id" => "books#destroy"
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
