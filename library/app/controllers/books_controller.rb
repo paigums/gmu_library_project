@@ -1,9 +1,8 @@
 
-class BooksController < ApplicationController	
- 	
+class BooksController < ApplicationController
+
 before_action :set_book, only: [ :show, :edit, :update, :destroy ]
 
-	
 	def index
 	  @available_at = Time.now
 	  @books = Book.includes(:reservations).order(:title).page(params[:page])
@@ -24,7 +23,7 @@ before_action :set_book, only: [ :show, :edit, :update, :destroy ]
 	      render :new
 	    end
 	end
-	
+
 	def edit
 	end
 
