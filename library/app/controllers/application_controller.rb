@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout ->(controller) { controller.request.xhr? ? false : 'application' }
 
-  before_action :authorize
+  #before_action :authorize
 
   helper_method :current_user
   protected
