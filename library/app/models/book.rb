@@ -10,10 +10,15 @@ validates :total_in_library,
 validates :abstract, length: { minimum: 15 }, unless: "abstract.blank?"
 validates :genre, inclusion: { in: %w(Football Basketball Baseball Hockey General),
 	message: "%{value} is not a valid genre" }
+
 # google date regex (regular expressions) to do a date validation so the correct format is used when adding a book to the database
-searchable do 
-	text :title, :author
-end
+
+
+#searchable do 
+#	text :title, :author
+#end
+
+
 #	def show_reserved_on
 #	  reservations.show(:reserved_on)
 #	end
@@ -26,11 +31,11 @@ end
 	  end
 	end
 
-	def search
-		search = Book.search params[:term]
-		@books = search.results
-		render'index'# or your view
-	end
+#	def search
+#		search = Book.search params[:term]
+#		@books = search.results
+#		render'index'# or your view
+#	end
 
 #BOOKS = 1..5
 #validates :abstract, length: { minimum: 15 }, unless: "abstract.blank?"
