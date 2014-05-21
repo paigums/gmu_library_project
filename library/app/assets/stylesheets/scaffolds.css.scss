@@ -67,3 +67,27 @@ div {
     list-style: square;
   }
 }
+
+
+.cover_image{
+  height: 150px;
+  float: left;
+  padding: 0px 20px 10px 0px;
+  margin-right: 13px;
+  overflow: hidden;
+  clear: both;
+  margin-bottom: 18px;
+}
+
+.links{
+  display: inline;
+}
+
+.delete-btn{
+  background-color:red !important;
+  border: 1px solid red !important;
+}
+    .delete-btn:hover{
+      background-color:maroon !important;
+
+    }
