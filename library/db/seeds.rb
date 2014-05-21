@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 ############# Users Model
-User.where(name:'Eric').first_or_create!(name:'Eric', user_id:'eoboite', password_digest:'boozallen1', admin:false)
-User.where(name:'Paige').first_or_create!(name:'Paige', user_id:'pmurph', password_digest:'boozallen2', admin:true)
-User.where(name:'Rich').first_or_create!(name:'Rich', user_id:'rcoleman', password_digest:'boozallen3', admin:true)
+User.where(name:'Eric').first_or_create!(name:'Eric', user_id:'eoboite', password_digest:'boozallen1', password:'boozallen1', password_confirmation:'boozallen1', admin:false)
+User.where(name:'Paige').first_or_create!(name:'Paige', user_id:'pmurph', password_digest:'boozallen2', password:'boozallen2', password_confirmation:'boozallen2', admin:true)
+User.where(name:'Rich').first_or_create!(name:'Rich', user_id:'rcoleman', password_digest:'boozallen3', password:'boozallen3', password_confirmation:'boozallen3', admin:true)
 
 ########### Book Model
 Book.where(title:'Game of My Life').first_or_create!(isbn:'1613213301', title:'Game of My Life', author:'Tom Mackie', author_id:1 , genre:'Football', abstract:'Several prominent players who have worn the legendary Redskins’ helmet share their fondest single-game experience and memories.', pages:272, image_cover_url:'http://img1.imagesbn.com/p/9781613213308_p0_v4_s260x420.JPG', published_on:'August 1, 2013', total_in_library:4)

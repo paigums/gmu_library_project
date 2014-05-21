@@ -1,4 +1,3 @@
-
 class AuthorsController < ApplicationController
 	def index
 	  	@available_at = Time.now

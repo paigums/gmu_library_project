@@ -7,3 +7,4 @@ class Author < ActiveResource::Base
 		string 'name', 'biography', 'dob', 'nationality', 'awards', 'image_url'
 	end
 end
+

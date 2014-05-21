@@ -4,12 +4,12 @@ one:
   id: 1
   reserved_on: 2014-05-03
   due_on: 2014-05-03
-  book_id: 
-  user_id: 
+  book_id:
+  user_id:
 
 two:
   id: 1
   reserved_on: 2014-05-03
   due_on: 2014-05-03
-  book_id: 
-  user_id: 
+  book_id:
+  user_id:

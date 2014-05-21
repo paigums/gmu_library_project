@@ -8,7 +8,6 @@ get 'users' => 'users#index'
   end
 
   get "admin/index"
-  #get "sessions/new"
   get "sessions/create"
   get "sessions/destroy"
   resources :users
@@ -19,16 +18,19 @@ resources :reservations
 end
 root 'books#index'
 
+get "/authors" => "authors#index", as: 'authors'
+get "/authors/new" => "authors#new", as: 'new_author'
+get "/authors/:id" => "authors#show", as: 'author'
+post "/authors" => "authors#create"
+post "/books/search" => "books#search"
+
+  #get "sessions/new"
   #get "/users" => "users#index", as: 'users'
   #get "/users/new" => "users#new", as: 'new_user'
   #get "/users/:id" => "users#show", as: 'user'
   #post "/users" => "users#create"
 
-  get "/authors" => "authors#index", as: 'authors'
-  get "/authors/new" => "authors#new", as: 'new_author'
-  get "/authors/:id" => "authors#show", as: 'author'
-  post "/authors" => "authors#create"
-  post "/books/search" => "books#search"
+
 
 
 
