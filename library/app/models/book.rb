@@ -1,4 +1,7 @@
 class Book < ActiveRecord::Base
+scope :searches, -> { where('')}
+scope :by, ->(author, title) { where('author = ?', 'title = ?', author, title)}
+
 has_many :reservations, dependent: :destroy
 validates :isbn, :title, :abstract, :pages, :genre, :published_on, :total_in_library, presence: true
 validates :pages, 
@@ -14,11 +17,6 @@ validates :genre, inclusion: { in: %w(Football Basketball Baseball Hockey Genera
 # google date regex (regular expressions) to do a date validation so the correct format is used when adding a book to the database
 
 
-#searchable do 
-#	text :title, :author
-#end
-
-
 #	def show_reserved_on
 #	  reservations.show(:reserved_on)
 #	end
@@ -31,11 +29,7 @@ validates :genre, inclusion: { in: %w(Football Basketball Baseball Hockey Genera
 	  end
 	end
 
-#	def search
-#		search = Book.search params[:term]
-#		@books = search.results
-#		render'index'# or your view
-#	end
+
 
 #BOOKS = 1..5
 #validates :abstract, length: { minimum: 15 }, unless: "abstract.blank?"
