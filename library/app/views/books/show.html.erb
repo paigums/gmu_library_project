@@ -11,15 +11,31 @@
   <p><label>Published On:</label> <%= @book.published_on %></p>
   <p><label>ISBN:</label> <%= @book.isbn %></p>
   <p><label>Genre:</label> <%= @book.genre %></p>
-  <p><label>Available:</label> <%= @book.total_in_library %></p>
   <p><label>Abstract:</label> <%= @book.abstract %></p>
   <p><label>Cover Image:</label><%= @book.image_cover_url %> </p>
-
+  
+  
   <p>
-  Available to Reserve
+  <!--Available to Reserve
   <%= link_to pluralize(@book.reservations.size, 'reservation'),
                         book_reservations_path(@book) %>
-</p>
+  -->
+  </p>
+  
+
+  <p><label>Available to Reserve:</label> <%= @book.total_in_library %></p>
+  
+  <p>
+    <%#= button_to 'Reserve', book_reservation_path(@book),
+        remote: false,
+        data: { 'update-target' => 'reservations_form_container' },
+        class: 'btn btn-primary' %>
+  </p>
+<p><%= button_to 'Reserve', book_reservations_path(@book), class:"btn btn-primary" %></p>
+
+<p><%#= button_to 'Logout', logout_path, method: :delete, class:"btn btn-primary" %></p>
+
+
 
 <%#<p><label>Show Reservations:</label> <%= format_show_reserved_on(@book) %></p>
 

@@ -14,4 +14,9 @@ class ApplicationController < ActionController::Base
         redirect_to login_url, notice: "Please log in"
       end
     end
+
+    def current_user
+      User.find_by(id: session[:user_id])
+    end
+
 end

@@ -7,10 +7,14 @@ class ReservationsController < ApplicationController
 
 	def new
 	  @reservation = @book.reservations.new
+	  logger.debug "Reservation's book: " + @reservation.book.title
 	end
 
 	def create
-	  @reservation = @book.reservations.new(reservation_params)
+	  #@reservation = @book.reservations.new(reservation_params)
+	  now = Time.new
+	  #user = User.find_by(id: session[:user_id])
+	  @reservation = @book.reservations.new({:reserved_on => now, :due_on => now+7.days, :user => current_user})
 	  if @reservation.save
 	    redirect_to book_reservations_path(@book), notice: 'Reserved!'
 	  else
@@ -25,8 +29,8 @@ class ReservationsController < ApplicationController
 	  @book = Book.find(params[:book_id])
 	end
 
-	def reservation_params
-	  params.require(:reservation).permit(:reserved_on, :due_on)
-	end
+	#def reservation_params
+	#  params.require(:reservation).permit(:reserved_on, :due_on)
+	#end
 
 end
