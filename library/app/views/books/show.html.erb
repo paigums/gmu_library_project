@@ -14,15 +14,16 @@
   <p><label>Published On:</label> <%= @book.published_on %></p>
   <p><label>ISBN:</label> <%= @book.isbn %></p>
   <p><label>Genre:</label> <%= @book.genre %></p>
-  <p><label>Available:</label> <%= @book.total_in_library %></p>
-
-
-
-  <p>Available to Reserve <%= link_to pluralize(@book.reservations.size, 'reservation'),
+  <p><label>Available to Reserve:</label> <%= @book.total_in_library %></p>
+  <p><%= button_to 'Reserve', book_reservations_path(@book), class:"btn btn-primary" %></p>
+  <!--
+  <p>Available to Reserve <%#= link_to pluralize(@book.reservations.size, 'reservation'),
                         book_reservations_path(@book) %> </p>
-
-<%#<p><label>Show Reservations:</label> <%= format_show_reserved_on(@book) %></p>
-
+  -->
+  
+  <!--  
+  <p><label>Show Reservations:</label> <%#= format_show_reserved_on(@book) %></p>
+  -->
 </article>
 
 <!-- if user is admin show these buttons -->
