@@ -7,6 +7,13 @@ get 'users' => 'users#index'
     delete 'logout' => :destroy
   end
 
+#  get 'books' => 'books#search'
+
+  get 'search' => "books#search", as: 'search'
+  controller :searches do
+#  post 'search' => :search
+  end
+
   get "admin/index"
   get "sessions/create"
   get "sessions/destroy"
@@ -22,7 +29,7 @@ get "/authors" => "authors#index", as: 'authors'
 get "/authors/new" => "authors#new", as: 'new_author'
 get "/authors/:id" => "authors#show", as: 'author'
 post "/authors" => "authors#create"
-post "/books/search" => "books#search"
+
 
   #get "sessions/new"
   #get "/users" => "users#index", as: 'users'

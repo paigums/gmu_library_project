@@ -1,50 +1,36 @@
 <% content_for :title, @book.title %>
 
-<%# <%= render 'shared/flashes' %>
+<%#= render 'shared/flashes' %>
 
 <article class="book">
   <header>
     <h2><%= @book.title %></h2>
   </header>
-  <p><label>Author:</label> <%= @book.author %></p>
+  <p><%= image_tag @book.image_cover_url, class:"cover_image" %> </p>
+  <p><label>Abstract:</label> <%= @book.abstract %></p><br>
+  <h4>Details</h4>
+  <p><label>Author:</label>  <%= link_to @book.author %> </p>
   <p><label>Pages:</label> <%= number_with_delimiter(@book.pages) %></p>
   <p><label>Published On:</label> <%= @book.published_on %></p>
   <p><label>ISBN:</label> <%= @book.isbn %></p>
   <p><label>Genre:</label> <%= @book.genre %></p>
-  <p><label>Abstract:</label> <%= @book.abstract %></p>
-  <p><label>Cover Image:</label><%= @book.image_cover_url %> </p>
-  
-  
-  <p>
-  <!--Available to Reserve
-  <%= link_to pluralize(@book.reservations.size, 'reservation'),
-                        book_reservations_path(@book) %>
-  -->
-  </p>
-  
-
   <p><label>Available to Reserve:</label> <%= @book.total_in_library %></p>
+  <p><%= button_to 'Reserve', book_reservations_path(@book), class:"btn btn-primary" %></p>
   
-  <p>
-    <%#= button_to 'Reserve', book_reservation_path(@book),
-        remote: false,
-        data: { 'update-target' => 'reservations_form_container' },
-        class: 'btn btn-primary' %>
-  </p>
-<p><%= button_to 'Reserve', book_reservations_path(@book), class:"btn btn-primary" %></p>
-
-<p><%#= button_to 'Logout', logout_path, method: :delete, class:"btn btn-primary" %></p>
-
-
-
-<%#<p><label>Show Reservations:</label> <%= format_show_reserved_on(@book) %></p>
-
+  <!--
+  <p>Available to Reserve <%#= link_to pluralize(@book.reservations.size, 'reservation'),
+                        book_reservations_path(@book) %> </p>
+  -->
+  
+  <!--  
+  <p><label>Show Reservations:</label> <%#= format_show_reserved_on(@book) %></p>
+  -->
 </article>
 
-<%= link_to 'All Books', books_path %>
-
 <!-- if user is admin show these buttons -->
+<div class="btn-group">
 <% if show_links == true %>
-<%= link_to 'Edit', edit_book_path(@book) %>
-<%= button_to 'Delete', @book, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= button_to 'Edit', edit_book_path(@book), class:"btn btn-primary" %>
+<%= button_to 'Delete', @book, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary delete-btn" %>
 <% end %>
+</div>

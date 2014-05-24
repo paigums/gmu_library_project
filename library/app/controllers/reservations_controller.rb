@@ -12,7 +12,7 @@ class ReservationsController < ApplicationController
 
 	def create
 	  #@reservation = @book.reservations.new(reservation_params)
-	  now = Time.new
+  	  now = Time.new
 	  #user = User.find_by(id: session[:user_id])
 	  @reservation = @book.reservations.new({:reserved_on => now, :due_on => now+7.days, :user => current_user})
 	  if @reservation.save
