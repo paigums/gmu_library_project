@@ -7,18 +7,27 @@ before_action :set_book, only: [ :show, :edit, :update, :destroy ]
 	def index
 	  @available_at = Time.now
 	  @books = Book.includes(:reservations).order(:title).page(params[:page])
-
+#	  @books = Book.search(params[:search])
+#	  respond_to do |format|
+#	  	format.html
+#	  	format.json { render json: @books }
+#	  end
 	end
 
-	def search
-		@books = Book.includes(:searches).order(:title).page(params[:page])
-	end
+#	def search
+#		@books = Book.search(params[:q])
+#		render 'index'
+#	end
+
 
 	def show
 	end
 
 	def new
 	  @book = Book.new
+	end
+
+	def edit
 	end
 
 	def create
@@ -30,8 +39,6 @@ before_action :set_book, only: [ :show, :edit, :update, :destroy ]
 	    end
 	end
 
-	def edit
-	end
 
 	def update
 	    if @book.update(book_params)

@@ -11,7 +11,7 @@ get 'users' => 'users#index'
 
   get 'search' => "books#search", as: 'search'
   controller :searches do
-#  post 'search' => :search
+  post 'search' => :search
   end
 
   get "admin/index"

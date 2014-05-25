@@ -3,7 +3,7 @@
   <ol id="reservations">
   <% @reservations.each do |reservation| %>
     <li>
-      <span class="reservation"><%= pluarlize(reservation.reserved_on, 'reservation') %> </span>
+      <span class="reservation"><%= pluralize(reservation.reserved_on, 'reservation') %> </span>
       <span class="user">Reserved by: <%= reservation.user.name %> </span>
       <span class="reserved_on">Reserved on: <%= time_ago_in_words(reservation.reserved_on) %> ago
       </span>

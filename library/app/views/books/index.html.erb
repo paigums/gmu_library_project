@@ -5,12 +5,10 @@
 <% @books.each do |book| %>
 
 	  <li>
+	  	
 	  <%= link_to(book.title, book) %>
 	  by <%= book.author %><br/>
-	  <%= format_show_reserved_on(book) %>
-	  <% if book.reservations.any? %>
-	    (out of <%= pluralize(book.reservations.size, 'reservation') %>)
-	  <% end %>
+	  <%= book.total_in_library %>
 		</li>
 <% end %>
 </ol>

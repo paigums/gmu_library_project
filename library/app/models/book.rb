@@ -1,6 +1,6 @@
 class Book < ActiveRecord::Base
-scope :searches, -> { where('')}
-scope :by, ->(author, title) { where('author = ?', 'title = ?', author, title)}
+#scope :searches, -> { where('')}
+#scope :by, ->(author, title) { where('author = ?', 'title = ?', author, title)}
 
 has_many :reservations, dependent: :destroy
 validates :isbn, :title, :abstract, :pages, :genre, :published_on, :total_in_library, presence: true

@@ -1,7 +1,7 @@
 <header class="page-header">
 <h1><%= link_to('Awesome Library', root_path) %></h1>
-<form action="<%= search_path %>" method ="get" >
-	<%= form_tag "Search for authors or titles" %>
+<form_for action="<%= search_path %>" method ="get" do >
+	<%= form_tag "search" %>
 	<%= text_field_tag "query" %>
 	<%= submit_tag "Search", :author => nil %>
 </form>
