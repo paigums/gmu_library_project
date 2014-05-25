@@ -1,21 +1,14 @@
 <h1>My Reservations</h1>
   <ol id="reservations">
   <% @reservations.each do |reservation| %>
-<<<<<<< HEAD
+  <h4> <class="reservation"><%= pluralize(reservation.reserved_on, 'reservation') %> </class></h4>
     <li>
-      <span class="reservation"><%= pluralize(reservation.reserved_on, 'reservation') %> </span>
-      <span class="user">Reserved by: <%= reservation.user.name %> </span>
-      <span class="reserved_on">Reserved on: <%= time_ago_in_words(reservation.reserved_on) %> ago
-      </span>
-      <span class="due_on">
-      Due on: <%= time_ago_in_words(reservation.due_on) %> ago
-      </span>
-=======
+
+
     <!--<li> -->
       <%= image_tag @book.image_cover_url, class:"cover_image" %> </p>
       <p><%= link_to(@book.title, @book) %></p>
-      <span class="reservation"><%= pluralize(reservation.reserved_on, 'reservation') %> </span><br>
-      <span class="user">Reserved By: <%= reservation.user.name %> </span><br>
+      <span class="user">Reserved by: <%= reservation.user.name %> </span><br>
       <span class="reserved_on">Reserved On: <%= time_ago_in_words(reservation.reserved_on) %> ago </span><br>
       <span class="due_on">Due on: <%= time_ago_in_words(reservation.due_on) %> ago </span><br>
       <%= link_to 'Return', new_book_reservation_path(@book),
@@ -24,8 +17,6 @@
         class: 'btn btn-primary' %>
       <br>
       <br>
-      <br>
->>>>>>> e89685817218dba3b2e147f451758d678b0ece8d
       <% end %>
       <p>
         If overdue, "Overdue!" alert text goes here.

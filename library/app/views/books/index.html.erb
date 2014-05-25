@@ -7,17 +7,10 @@
 	  	
 	  <%= link_to(book.title, book) %>
 	  by <%= book.author %><br/>
-<<<<<<< HEAD
 	  <%= book.total_in_library %>
 		</li>
-=======
-	  <%= format_show_reserved_on(book) %>
-	  <% if book.reservations.any? %>
-	    (out of <%= pluralize(book.reservations.size, 'reservation') %>)
 	  <% end %>
-	  </li>
->>>>>>> e89685817218dba3b2e147f451758d678b0ece8d
-<% end %>
+
 </ol>
 <%= paginate @books %>
 
