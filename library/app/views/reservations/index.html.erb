@@ -1,26 +1,49 @@
 <h1>My Reservations</h1>
   <ol id="reservations">
   <% @reservations.each do |reservation| %>
-  <h4> <class="reservation"><%= pluralize(reservation.reserved_on, 'reservation') %> </class></h4>
+    <h4><class="reservation"><%= pluralize(reservation.reserved_on, 'reservation') %> </class></h4>
     <li>
 
-
+    <!-- Need to add the blue background and right align the return button -->
     <!--<li> -->
-      <%= image_tag @book.image_cover_url, class:"cover_image" %> </p>
-      <p><%= link_to(@book.title, @book) %></p>
-      <span class="user">Reserved by: <%= reservation.user.name %> </span><br>
+      
+      <div class="res-bg">
+      <br>
+      <p> <%= image_tag @book.image_cover_url, class:"cover_image" %></p><br>
+      <p><h4><%= link_to(@book.title, @book) %></h4></p>
+
+      <!--
+      <span class="user">Reserved By: <%= reservation.user.name %> </span><br>
+      -->
+      
       <span class="reserved_on">Reserved On: <%= time_ago_in_words(reservation.reserved_on) %> ago </span><br>
       <span class="due_on">Due on: <%= time_ago_in_words(reservation.due_on) %> ago </span><br>
-      <%= link_to 'Return', new_book_reservation_path(@book),
+      
+      <!--  Borrowed Reserve button below from book page and turned into Return button. -->
+      <div class="btn-aln-rt"><%= button_to 'Return', book_reservations_path(@book), class:"btn btn-primary" %></div>
+      <!--  Original Return button, but above is what we used for the book reserve button
+      <%#= link_to 'Return', new_book_reservation_path(@book),
         remote: true,
         data: { 'update-target' => 'reservations_form_container' },
         class: 'btn btn-primary' %>
+      -->
+
+      <!--  Example delete button button from book show page.  Significant due due to functionality to delete reservation
+      <%#= button_to 'Delete', @book, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary delete-btn" %>
+      -->
       <br>
       <br>
+      <br>
+      <br>
+      </div>
       <% end %>
       <p>
+        <%#= if date.today > @book.reservations.due date %>
+        Book is Overdue!
         If overdue, "Overdue!" alert text goes here.
+
       </p>
+      Displaying <%= @book.reservations.size %> Reservations
     <!-- </li> -->
 
 </ol>

@@ -5,6 +5,11 @@ body {
   font-size: 13px;
   line-height: 18px;
 }
+.btn-align-right{
+  align: right;
+}
+
+
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -34,6 +39,16 @@ div {
     margin-bottom: 10px;
   }
 }
+.btn-aln-rt{
+  position:absolute;
+  right:30px;
+}
+.res-bg{
+  
+  background-color: #F8F8FE;
+  
+}
+
 
 #notice {
   color: green;
@@ -91,3 +106,5 @@ div {
       background-color:maroon !important;
 
     }
+
+
