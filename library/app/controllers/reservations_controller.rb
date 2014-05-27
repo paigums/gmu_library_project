@@ -4,24 +4,43 @@ class ReservationsController < ApplicationController
 	def index
 	  @reservations = @book.reservations.order('created_at desc')
 	end
-
+    
+    def show
+	  #From sidebar, need to provide missing keys:  [:id] -- Need help
+	end
+	
 	def new
 	  @reservation = @book.reservations.new
 	  logger.debug "Reservation's book: " + @reservation.book.title
 	end
 
 	def create
-	  #@reservation = @book.reservations.new(reservation_params)
+      #if @books.total_in_library > 0
+      #@reservation = @book.reservations.new(reservation_params)
   	  now = Time.new
 	  #user = User.find_by(id: session[:user_id])
 	  @reservation = @book.reservations.new({:reserved_on => now, :due_on => now+7.days, :user => current_user})
-	  if @reservation.save
-	    redirect_to book_reservations_path(@book), notice: @book.title + ' has been Reserved!'
-	  else
-	    render :new
-	  end
-	end
+	    if @reservation.save
+	      redirect_to book_reservations_path(@book), notice: @book.title + ' has been Reserved!'
+	    else
+	      render :new
+	    end
+	  
+      #else 
+      #	redirect_to book_reservations_path(@book), notice: @book.title + ' is not Available!'
+      #	@books.total_in_library -= 1
+      #end
 
+	end
+    
+    # Added on 26-May
+    def destroy
+    	@book.reservation.destroy
+    	redirect_to book_reservation_url
+
+    	#@reservation.destroy
+    	#redirect_to reservations_url
+    end
 
 	private
 

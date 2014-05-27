@@ -3,10 +3,7 @@
   <% @reservations.each do |reservation| %>
     <h4><class="reservation"><%= pluralize(reservation.reserved_on, 'reservation') %> </class></h4>
     <li>
-
-    <!-- Need to add the blue background and right align the return button -->
     <!--<li> -->
-      
       <div class="res-bg">
       <br>
       <p> <%= image_tag @book.image_cover_url, class:"cover_image" %></p><br>
@@ -20,7 +17,10 @@
       <span class="due_on">Due on: <%= time_ago_in_words(reservation.due_on) %> ago </span><br>
       
       <!--  Borrowed Reserve button below from book page and turned into Return button. -->
-      <div class="btn-aln-rt"><%= button_to 'Return', book_reservations_path(@book), class:"btn btn-primary" %></div>
+      <div class="btn-aln-rt">
+      <%= button_to 'Return', @reservation, method: :delete, data: { confirm: 'Are you sure?'}, class:"btn btn-primary" %>
+      <!--On the above line, I used "@book" and it deleted Jack Tatum's book, ouch! -->
+      </div>
       <!--  Original Return button, but above is what we used for the book reserve button
       <%#= link_to 'Return', new_book_reservation_path(@book),
         remote: true,
@@ -47,5 +47,11 @@
     <!-- </li> -->
 
 </ol>
+
+<p>
+  View all
+  <%= link_to pluralize(@book.reservations.size, 'reservation'), 
+                        book_reservations_path(@book) %>
+</p>
 
 <div id="reservations_form_container"></div>

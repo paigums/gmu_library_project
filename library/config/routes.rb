@@ -19,16 +19,21 @@ get 'users' => 'users#index'
   get "sessions/destroy"
   resources :users
 
-resources :books do
-resources :reservations
+  resources :books do
+  resources :reservations
   get 'page/:page', :action => :index, :on => :collection
-end
-root 'books#index'
+  end
+  root 'books#index'
 
-get "/authors" => "authors#index", as: 'authors'
-get "/authors/new" => "authors#new", as: 'new_author'
-get "/authors/:id" => "authors#show", as: 'author'
-post "/authors" => "authors#create"
+
+  #delete "/reservations/:id" => "reservations#destroy"
+
+
+
+  get "/authors" => "authors#index", as: 'authors'
+  get "/authors/new" => "authors#new", as: 'new_author'
+  get "/authors/:id" => "authors#show", as: 'author'
+  post "/authors" => "authors#create"
 
 
   #get "sessions/new"
