@@ -4,13 +4,12 @@
 <ol>
 <% @books.each do |book| %>
 	  <li>
-	  	
 	  <%= link_to(book.title, book) %>
 	  by <%= book.author %><br/>
 	  <%= book.total_in_library %>
 		</li>
-	  <% end %>
-
+	<%= image_tag book.image_cover_url %>
+<% end %>
 </ol>
 <%= paginate @books %>
 
