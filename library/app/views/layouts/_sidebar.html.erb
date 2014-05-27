@@ -8,8 +8,9 @@
           <div class="panel-body">
             <p> <%= link_to 'All Books', books_path %> </p>
             <p> <%= link_to 'Authors', authors_path %> </p>
-            <p> My Reservations </p>
-            <p><%#= link_to 'My Reservations', book_reservation_path %></p><!--This is the alternate syntax that wouldn't work either.  It generates the  following routes error:  No route matches {:action=>"show", :controller=>"reservations", :book_id=>"3"} missing required keys: [:id] -->
+            <p> <%= link_to 'My Reservations', reservations_path %> </p>
+            <p><%#= link_to 'My Reservations', book_reservation_path(@book) %></p>
+            <!--This is the alternate syntax that wouldn't work either.  It generates the  following routes error:  No route matches {:action=>"show", :controller=>"reservations", :book_id=>"3"} missing required keys: [:id] -->
 
             <%#= link_to 'My Reservations', book_reservations_path(@book) %> <!--This generates the following routes error:  No route matches {:book_id=>nil} missing required keys: [:book_id]-->
 

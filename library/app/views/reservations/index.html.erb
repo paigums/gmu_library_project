@@ -6,19 +6,19 @@
     <!--<li> -->
       <div class="res-bg">
       <br>
-      <p> <%= image_tag @book.image_cover_url, class:"cover_image" %></p><br>
-      <p><h4><%= link_to(@book.title, @book) %></h4></p>
+      <p> <%= image_tag reservation.book.image_cover_url, class:"cover_image" %></p><br>
+      <p><h4><%= link_to(reservation.book.title, reservation.book) %></h4></p>
 
       <!--
       <span class="user">Reserved By: <%= reservation.user.name %> </span><br>
       -->
       
       <span class="reserved_on">Reserved On: <%= time_ago_in_words(reservation.reserved_on) %> ago </span><br>
-      <span class="due_on">Due on: <%= time_ago_in_words(reservation.due_on) %> ago </span><br>
+      <span class="due_on">Due on: <%= time_ago_in_words(reservation.due_on) %> from now </span><br>
       
       <!--  Borrowed Reserve button below from book page and turned into Return button. -->
       <div class="btn-aln-rt">
-      <%= button_to 'Return', @reservation, method: :delete, data: { confirm: 'Are you sure?'}, class:"btn btn-primary" %>
+      <%= button_to 'Return', reservation, method: :delete, class:"btn btn-primary" %>
       <!--On the above line, I used "@book" and it deleted Jack Tatum's book, ouch! -->
       </div>
       <!--  Original Return button, but above is what we used for the book reserve button
@@ -43,15 +43,7 @@
         If overdue, "Overdue!" alert text goes here.
 
       </p>
-      Displaying <%= @book.reservations.size %> Reservations
+      Displaying <%= @reservations.size %> Reservations
     <!-- </li> -->
 
 </ol>
-
-<p>
-  View all
-  <%= link_to pluralize(@book.reservations.size, 'reservation'), 
-                        book_reservations_path(@book) %>
-</p>
-
-<div id="reservations_form_container"></div>

@@ -19,9 +19,11 @@ get 'users' => 'users#index'
   get "sessions/destroy"
   resources :users
 
-  resources :books do
   resources :reservations
-  get 'page/:page', :action => :index, :on => :collection
+
+  resources :books do
+    resources :reservations
+    get 'page/:page', :action => :index, :on => :collection
   end
   root 'books#index'
 
