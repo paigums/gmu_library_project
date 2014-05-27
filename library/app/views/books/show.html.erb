@@ -33,7 +33,7 @@
 <!-- if user is admin show these buttons -->
 <div class="btn-group">
 <% if show_links == true %>
-<%= button_to 'Edit', edit_book_path(@book), class:"btn btn-default" %>
+<%= link_to 'Edit', edit_book_path(@book), class:"btn btn-default" %>
 <%= button_to 'Delete', @book, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary delete-btn" %>
 <% end %>
 </div>
