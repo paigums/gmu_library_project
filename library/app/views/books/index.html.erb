@@ -1,16 +1,24 @@
 <h1>Books</h1>
 <p>Available as of <%= formatted_time(@available_at) %></p>
 <%= page_entries_info @books %>
-<ol>
+
+
+<ul id="author-list">
+	
 <% @books.each do |book| %>
-	  <li>
+<div class="highlight">
+	  <li class="form-group clearfix">
+	  <%= image_tag book.image_cover_url, class:"cover_image2" %><br/>
 	  <%= link_to(book.title, book) %>
 	  by <%= book.author %><br/>
-	  <%= book.total_in_library %>
-		</li>
-	<%= image_tag book.image_cover_url %>
+	  <span>Available to reserve: </span><%= book.total_in_library %>
+	</li>
+</div>
 <% end %>
-</ol>
+	
+</ul>
+
+
 <%= paginate @books %>
 
 <%# <%= link_to 'New Book', new_book_path %>
