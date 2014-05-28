@@ -3,19 +3,10 @@ class BooksController < ApplicationController
 before_action :set_book, only: [ :show, :edit, :update, :destroy ]
 
 	def index
+		@page_title = 'All Books'
 	  @available_at = Time.now
 	  @books = Book.includes(:reservations).order(:title).page(params[:page])
-#	  @books = Book.search(params[:search])
-#	  respond_to do |format|
-#	  	format.html
-#	  	format.json { render json: @books }
-#	  end
 	end
-
-#	def search
-#		@books = Book.search(params[:q])
-#		render 'index'
-#	end
 
 	def show
 	end

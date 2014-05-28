@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-	before_action :set_book, except: [ :destroy, :index ]
+	before_action :set_book, except: [ :destroy, :index, :overdue ]
 
 	def index
 	  @reservations = current_user.reservations.order('created_at desc')
@@ -25,13 +25,24 @@ class ReservationsController < ApplicationController
 	    else
 	      render :new
 	    end
-	  
+
+#	def overdue
+      #@reservation = @book.reservations.new(reservation_params)
+ #       due = Time.past?
+#  		@overdue = @book.reservations.due({:due_on => due, :user => current_user})
+#	    if Time.past?
+#	      redirect_to @book,  notice: @book.title + ' is overdue!'
+#	    else
+#	      render :new
+#	    end
+
+	end  
       #else 
       #	redirect_to book_reservations_path(@book), notice: @book.title + ' is not Available!'
       #	@books.total_in_library -= 1
       #end
 
-	end
+
     
     # Added on 26-May
     def destroy

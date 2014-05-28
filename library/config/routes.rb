@@ -7,12 +7,8 @@ get 'users' => 'users#index'
     delete 'logout' => :destroy
   end
 
-#  get 'books' => 'books#search'
+  get 'search' => "searches#search", as: 'search'
 
-  get 'search' => "books#search", as: 'search'
-  controller :searches do
-  post 'search' => :search
-  end
 
   get "admin/index"
   get "sessions/create"
@@ -20,6 +16,10 @@ get 'users' => 'users#index'
   resources :users
 
   resources :reservations
+ # get '/reservations/overdue' => "reservations#overdue", as: 'overdue_reservations'
+ # controller :overdue do
+ #   get 'reservations' => :overdue
+ # end
 
   resources :books do
     resources :reservations
