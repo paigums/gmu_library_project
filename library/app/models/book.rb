@@ -29,6 +29,7 @@ validates :genre, inclusion: { in: %w(Football Basketball Baseball Hockey Genera
 	  end
 	end
 
+
 #BOOKS = 1..5
 #validates :abstract, length: { minimum: 15 }, unless: "abstract.blank?"
 #validates :genre, inclusion: { in: BOOKS, message: "must be from #{BOOKS.first} to #{BOOKS.last}" }

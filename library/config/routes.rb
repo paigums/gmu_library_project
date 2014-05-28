@@ -9,12 +9,17 @@ get 'users' => 'users#index'
 
   get 'search' => "searches#search", as: 'search'
 
+
   get "admin/index"
   get "sessions/create"
   get "sessions/destroy"
   resources :users
 
   resources :reservations
+ # get '/reservations/overdue' => "reservations#overdue", as: 'overdue_reservations'
+ # controller :overdue do
+ #   get 'reservations' => :overdue
+ # end
 
   resources :books do
     resources :reservations
