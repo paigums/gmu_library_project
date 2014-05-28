@@ -1,8 +1,8 @@
 class ReservationsController < ApplicationController
-	before_action :set_book
+	before_action :set_book, except: [ :destroy, :index ]
 
 	def index
-	  @reservations = @book.reservations.order('created_at desc')
+	  @reservations = current_user.reservations.order('created_at desc')
 	end
     
     def show
@@ -35,8 +35,12 @@ class ReservationsController < ApplicationController
     
     # Added on 26-May
     def destroy
-    	@book.reservation.destroy
-    	redirect_to book_reservation_url
+    	logger.debug "This will destroy reservation #{params[:id]}"
+
+		reservation = Reservation.find(params[:id])
+
+    	reservation.destroy
+    	redirect_to reservations_path, notice: "#{reservation.book.title} has been returned"
 
     	#@reservation.destroy
     	#redirect_to reservations_url
