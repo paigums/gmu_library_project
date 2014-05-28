@@ -1,4 +1,5 @@
-<h1>Books</h1>
+<h1><%= @page_title %></h1>
+
 <p>Available as of <%= formatted_time(@available_at) %></p>
 <%= page_entries_info @books %>
 
@@ -11,13 +12,12 @@
 	  <%= image_tag book.image_cover_url, class:"cover_image2" %><br/>
 	  <%= link_to(book.title, book) %>
 	  by <%= book.author %><br/>
-	  <span>Available to reserve: </span><%= book.total_in_library %>
+	  <span>Available to Reserve: </span><%= book.total_in_library %>
 	</li>
 </div>
 <% end %>
 	
 </ul>
-
 
 <%= paginate @books %>
 

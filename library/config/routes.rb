@@ -7,12 +7,7 @@ get 'users' => 'users#index'
     delete 'logout' => :destroy
   end
 
-#  get 'books' => 'books#search'
-
-  get 'search' => "books#search", as: 'search'
-  controller :searches do
-  post 'search' => :search
-  end
+  get 'search' => "searches#search", as: 'search'
 
   get "admin/index"
   get "sessions/create"
