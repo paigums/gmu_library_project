@@ -94,6 +94,15 @@ div {
   margin-bottom: 18px;
 }
 
+.cover_image2{
+  height: 100px;
+  float: left;
+  padding: 10px;
+  margin-right: 13px;
+  overflow: hidden;
+  clear: both;
+}
+
 .links{
   display: inline;
 }
@@ -107,4 +116,8 @@ div {
 
     }
 
+ul#author-list{
+  list-style-type:none;
+}
 
+.highlight{background-color:#e2e2e2;}
