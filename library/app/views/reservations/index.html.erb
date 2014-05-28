@@ -13,8 +13,11 @@
       <span class="user">Reserved By: <%= reservation.user.name %> </span><br>
       -->
       
-      <span class="reserved_on">Reserved On: <%= time_ago_in_words(reservation.reserved_on) %> ago </span><br>
-      <span class="due_on">Due on: <%= time_ago_in_words(reservation.due_on) %> from now </span><br>
+      <span class="reserved_on">Reserved On: <%= reservation.reserved_on %> ago </span><br>
+      <!-- time_ago_in_words(reservation.reserved_on) -->
+
+      <span class="due_on">Due on: <%= reservation.due_on %> from now </span><br>
+      <!-- <%#= time_ago_in_words(reservation.due_on) %> -->
       
       <!--  Borrowed Reserve button below from book page and turned into Return button. -->
       <div class="btn-aln-rt">

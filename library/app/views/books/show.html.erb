@@ -15,8 +15,12 @@
   <p><label>ISBN:</label> <%= @book.isbn %></p>
   <p><label>Genre:</label> <%= @book.genre %></p>
   <p><label>Available to Reserve:</label> <%= @book.total_in_library %></p>
-    
-  <p><%= button_to 'Reserve', book_reservations_path(@book), class:"btn btn-primary" %></p>
+  
+  <% if @book.can_reserve? %>  
+    <p><%= button_to 'Reserve', book_reservations_path(@book), class:"btn btn-primary" %></p>
+  <% else %>
+    This book is not currently available.
+  <% end %>
 
 
   <!--

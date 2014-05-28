@@ -29,7 +29,10 @@ validates :genre, inclusion: { in: %w(Football Basketball Baseball Hockey Genera
 	  end
 	end
 
-
+	def can_reserve?
+		total_available = self.total_in_library - self.reservations.size
+		total_available > 0
+	end
 
 #BOOKS = 1..5
 #validates :abstract, length: { minimum: 15 }, unless: "abstract.blank?"

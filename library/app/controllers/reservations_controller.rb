@@ -6,7 +6,7 @@ class ReservationsController < ApplicationController
 	end
     
     def show
-	  #From sidebar, need to provide missing keys:  [:id] -- Need help
+		#From sidebar, need to provide missing keys:  [:id] -- Need help
 	end
 	
 	def new
@@ -44,6 +44,7 @@ class ReservationsController < ApplicationController
 
     	#@reservation.destroy
     	#redirect_to reservations_url
+
     end
 
 	private
