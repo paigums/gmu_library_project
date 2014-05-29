@@ -12,7 +12,7 @@
 	  <%= image_tag book.image_cover_url, class:"cover_image2" %><br/>
 	  <%= link_to(book.title, book) %>
 	  by <%= book.author %><br/>
-	  <span>Available to Reserve: </span><%= book.total_in_library %>
+	  <span>Available to Reserve: </span><%= book.calc_avail_to_reserve %>
 	</li>
 </div>
 <% end %>

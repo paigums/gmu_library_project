@@ -34,6 +34,11 @@ validates :genre, inclusion: { in: %w(Football Basketball Baseball Hockey Genera
 		total_available > 0
 	end
 
+  def calc_avail_to_reserve
+  		avail_to_reserve = self.total_in_library - self.reservations.size
+  end
+
+
 #BOOKS = 1..5
 #validates :abstract, length: { minimum: 15 }, unless: "abstract.blank?"
 #validates :genre, inclusion: { in: BOOKS, message: "must be from #{BOOKS.first} to #{BOOKS.last}" }

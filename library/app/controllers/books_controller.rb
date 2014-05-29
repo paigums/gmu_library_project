@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 before_action :set_book, only: [ :show, :edit, :update, :destroy ]
 
 	def index
-		@page_title = 'All Books'
+	  @page_title = 'All Books'
 	  @available_at = Time.now
 	  @books = Book.includes(:reservations).order(:title).page(params[:page])
 	end

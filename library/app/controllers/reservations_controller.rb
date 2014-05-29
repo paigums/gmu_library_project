@@ -6,7 +6,6 @@ class ReservationsController < ApplicationController
 	end
     
     def show
-		#From sidebar, need to provide missing keys:  [:id] -- Need help
 	end
 	
 	def new
@@ -36,7 +35,7 @@ class ReservationsController < ApplicationController
 #	      render :new
 #	    end
 
-	end  
+	end
       #else 
       #	redirect_to book_reservations_path(@book), notice: @book.title + ' is not Available!'
       #	@books.total_in_library -= 1
