@@ -22,7 +22,7 @@
       This book is not currently available.
   <#% end %>
 
-  This check is to see if a book is available to reserve if it's reserved and then display the button or appropriate message.  The above conditional statement should be replaced with this. -->
+  This check is to see if a book is available to reserve if it's reserved and then display the button or appropriate message.   -->
   <% if @book.can_reserve? %> 
        <p><%= button_to 'Reserve', book_reservations_path(@book), class:"btn btn-primary" %></p>
   <% elsif @book.reservations %>

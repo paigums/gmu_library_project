@@ -19,7 +19,7 @@ class ReservationsController < ApplicationController
   	  now = Time.new
 	  #user = User.find_by(id: session[:user_id])
 	  @reservation = @book.reservations.new({:reserved_on => now, :due_on => now+7.days, :user => current_user})
-	    if @reservation.save
+	    if @reservation.save(current_user)
 	      redirect_to book_reservations_path(@book), notice: @book.title + ' has been Reserved!'
 	    else
 	      render :new
