@@ -15,23 +15,22 @@
   <p><label>ISBN:</label> <%= @book.isbn %></p>
   <p><label>Genre:</label> <%= @book.genre %></p>
   <p><label>Available to Reserve:</label> <%= @book.calc_avail_to_reserve %></p>
-  
-  <% if @book.can_reserve? %> 
-       <p><%= button_to 'Reserve', book_reservations_path(@book), class:"btn btn-primary" %></p>
-  <% else %>
-      This book is not currently available.
-  <% end %>
-
-  <!--This check is to see if a book is available to reserve if it's reserved and then display the button or appropriate message.  The above conditional statement should be replaced with this.
-  <#% if @book.can_reserve? AND !@book.reserved %> 
+  <!--
+  <%# if @book.can_reserve? %> 
        <p><%#= button_to 'Reserve', book_reservations_path(@book), class:"btn btn-primary" %></p>
-      <#% end %>
-  <#% elsif @book.reserved %>
-     You currently have this book reserved.
   <#% else %>
       This book is not currently available.
   <#% end %>
-  -->
+
+  This check is to see if a book is available to reserve if it's reserved and then display the button or appropriate message.  The above conditional statement should be replaced with this. -->
+  <% if @book.can_reserve? %> 
+       <p><%= button_to 'Reserve', book_reservations_path(@book), class:"btn btn-primary" %></p>
+  <% elsif @book.reservations %>
+     <p class="bg-info">You currently have this book reserved.</p>
+  <% else %>
+      <p class="bg-danger">This book is not currently available.</p>
+  <% end %>
+  
 
 
   <!--
