@@ -1,5 +1,6 @@
 package edu.gmu.authorservice.dao;
 
+import edu.gmu.authorservice.SQLiteHelper;
 import edu.gmu.authorservice.model.Author;
 
 import java.util.Collection;
