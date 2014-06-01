@@ -15,11 +15,15 @@ get 'users' => 'users#index'
   get "sessions/destroy"
   resources :users
 
-  resources :reservations
+ get '/reservations/overdue' => "reservations#overdue", as: 'overdue_reservations'
+ resources :reservations
+
  # get '/reservations/overdue' => "reservations#overdue", as: 'overdue_reservations'
  # controller :overdue do
  #   get 'reservations' => :overdue
  # end
+
+
 
   resources :books do
     resources :reservations
@@ -27,10 +31,7 @@ get 'users' => 'users#index'
   end
   root 'books#index'
 
-
   #delete "/reservations/:id" => "reservations#destroy"
-
-
 
   get "/authors" => "authors#index", as: 'authors'
   get "/authors/new" => "authors#new", as: 'new_author'
@@ -43,14 +44,6 @@ get 'users' => 'users#index'
   #get "/users/new" => "users#new", as: 'new_user'
   #get "/users/:id" => "users#show", as: 'user'
   #post "/users" => "users#create"
-
-
-
-
-
-
-
-
 
  # get "/books" => "books#index", as: 'books'
  # get "/books/new" => "books#new", as: 'new_book'

@@ -15,23 +15,32 @@
   <p><label>ISBN:</label> <%= @book.isbn %></p>
   <p><label>Genre:</label> <%= @book.genre %></p>
   <p><label>Available to Reserve:</label> <%= @book.calc_avail_to_reserve %></p>
-  <!--
-  <%# if @book.can_reserve? %> 
-       <p><%#= button_to 'Reserve', book_reservations_path(@book), class:"btn btn-primary" %></p>
-  <#% else %>
-      This book is not currently available.
-  <#% end %>
 
-  This check is to see if a book is available to reserve if it's reserved and then display the button or appropriate message.   -->
-  <% if @book.can_reserve? %> 
-       <p><%= button_to 'Reserve', book_reservations_path(@book), class:"btn btn-primary" %></p>
-  <% elsif @book.reservations %>
-     <p class="bg-info">You currently have this book reserved.</p>
+  <!--
+  <#% if  @book.is_reserved_by?(current_user) %>
+  -->
+  
+  <% if @book.can_reserve? %>
+     <p><%= button_to 'Reserve', book_reservations_path(@book), class:"btn btn-primary" %></p>
+  <% elsif  @book.reservations %>
+  <p class="bg-info">You currently have this book checked out.</p>
   <% else %>
-      <p class="bg-danger">This book is not currently available.</p>
+      This book is not currently available.
   <% end %>
   
+  <!--
+  The check below checks for books greater than to display the reserve button, else checks if you've reserved it and displays the message if there are no books available.  The behavior counts down the number of books before displaying the checked out message, which is incorrect.
+  -->
 
+  <!--
+  <#% if @book.can_reserve? %>
+     <p><%#= button_to 'Reserve', book_reservations_path(@book), class:"btn btn-primary" %></p>
+  <#% elsif  @book.reservations %>
+     <p class="bg-info">You currently have this book checked out.</p>
+  <#% else %>
+      <p class="bg-danger">This book is not currently available.</p>
+  <#% end %>
+  -->
 
   <!--
   <p>Available to Reserve <%#= link_to pluralize(@book.reservations.size, 'reservation'),

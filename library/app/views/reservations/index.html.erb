@@ -1,52 +1,25 @@
 <h1>My Reservations</h1>
   <ol id="reservations">
   <% @reservations.each do |reservation| %>
+    <br>
+    <!--
     <h4><class="reservation"><%= pluralize(reservation.reserved_on, 'reservation') %> </class></h4>
+    -->
     <li>
-    <!--<li> -->
       <div class="res-bg">
       <br>
-      <p> <%= image_tag reservation.book.image_cover_url, class:"cover_image" %></p><br>
-      <p><h4><%= link_to(reservation.book.title, reservation.book) %></h4></p>
-
-      <!--
-      <span class="user">Reserved By: <%= reservation.user.name %> </span><br>
-      -->
-      
-      <span class="reserved_on">Reserved On: <%= reservation.reserved_on %> ago </span><br>
-      <!-- time_ago_in_words(reservation.reserved_on) -->
-
-      <span class="due_on">Due on: <%= reservation.due_on %> from now </span><br>
-      <!-- <%#= time_ago_in_words(reservation.due_on) %> -->
-      
-      <!--  Borrowed Reserve button below from book page and turned into Return button. -->
+      <%= image_tag reservation.book.image_cover_url, class:"cover_image" %>
+      <p><h4><%= link_to(reservation.book.title, reservation.book) %></h4></p>      
+      <span class="reserved_on">Reserved On: <%= reservation.reserved_on %></span><br>
+      <span class="due_on">Due on: <%= reservation.due_on %></span>
+      <br><br><br><br>
       <div class="btn-aln-rt">
       <%= button_to 'Return', reservation, method: :delete, class:"btn btn-primary delete-btn" %>
-      <!--On the above line, I used "@book" and it deleted Jack Tatum's book, ouch! -->
       </div>
-      <!--  Original Return button, but above is what we used for the book reserve button
-      <%#= link_to 'Return', new_book_reservation_path(@book),
-        remote: true,
-        data: { 'update-target' => 'reservations_form_container' },
-        class: 'btn btn-primary' %>
-      -->
-
-      <!--  Example delete button button from book show page.  Significant due due to functionality to delete reservation
-      <%#= button_to 'Delete', @book, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary delete-btn" %>
-      -->
-      <br>
-      <br>
-      <br>
-      <br>
+      <br><br>
       </div>
-      <% end %>
-      <p>
-        <%#= if date.today > @book.reservations.due date %>
-        Book is Overdue!
-        If overdue, "Overdue!" alert text goes here.
-
-      </p>
-      Displaying <%= @reservations.size %> Reservations
-    <!-- </li> -->
-
-</ol>
+    </li>
+  <% end %>
+  <br>
+  Displaying All <%= @reservations.size %> of My Reservations
+  </ol>

@@ -22,7 +22,7 @@
 
             <% if show_links == true %>
                 <p><%= link_to 'New Book', new_book_path %></p>
-                <p><%= link_to 'Overdue Books', books_path %> </p>
+                <p><%= link_to 'Overdue Books', overdue_reservations_path %> </p> <!-- books_path -->
                 <p><%#<%= link_to 'Log out', session_path(:user_id), method: :delete%></p>
             <% end -%>
             <p><%= button_to 'Logout', logout_path, method: :delete, class:"btn btn-primary" %></p>

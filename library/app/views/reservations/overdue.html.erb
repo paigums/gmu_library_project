@@ -1,12 +1,25 @@
 <h1>Overdue Books</h1>
   <ol id="reservations">
-  <% @reservations.each do |reservation| %>
-    <h4><class="reservation"><%= pluralize(reservation.overdue, 'overdue') %> </class></h4>
-    <li>
-    <!--<li> -->
-      <div class="res-bg">
+    <% @reservations.each do |reservation| %>
+      <% if reservation.is_overdue? %>
       <br>
-      <p> <%= image_tag reservation.book.image_cover_url, class:"cover_image" %></p><br>
-      <p><h4><%= link_to(reservation.book.title, reservation.book) %></h4></p>
-
-
+      <!--
+      <p> <h4><class="reservation"><%= pluralize(reservation.due_on, 'reservation') %> </class></h4></p>
+      -->
+      <li>
+        <div class="res-bg">
+        <br> 
+        <%= image_tag reservation.book.image_cover_url, class:"cover_image" %>
+        <p><h4><%= link_to(reservation.book.title, reservation.book) %></h4></p>
+       <span class="user">Reserved By: <%= reservation.user.name %> </span><br>
+       <span class="reserved_on">Reserved On: <%= reservation.reserved_on %></span><br>
+       <span class="due_on">Due On: <%= reservation.due_on %></span><br>
+       <div class="btn-aln-rt">
+       <%= button_to 'Return', reservation, method: :delete, class:"btn btn-primary delete-btn" %>
+       </div>
+       <h4>Overdue!</h4>
+       <br>
+       </div>
+       <% end %>
+    <% end %>
+</ol>
