@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
 
 	def create
       now = Time.new
-	  @reservation = @book.reservations.new({:reserved_on => now - 10.days, :due_on => now - 5.days, :user => current_user})
+	  @reservation = @book.reservations.new({:reserved_on => now, :due_on => now + 5.days, :user => current_user})
 	    if @reservation.save(current_user)
 	      redirect_to book_reservations_path(@book), notice: @book.title + ' has been Reserved!'
 	    else
