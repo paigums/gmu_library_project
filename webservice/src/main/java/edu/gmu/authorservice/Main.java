@@ -46,7 +46,6 @@ public class Main {
 
         // Create and start a new instance of grizzly HTTP server
         // exposing the Jersey application at BASE_URI
-        java.lang.Object GrizzlyHttpServerFactory;
         return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
     }
 
